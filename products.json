@@ -1,0 +1,29 @@
+[
+  {
+    "title": "RHCP",
+    "description": "Funky style",
+    "price": 599,
+    "thumbnail": "Url1: ",
+    "code": "RHCP45",
+    "stock": 1000,
+    "id": 0
+  },
+  {
+    "title": "RHCP",
+    "description": "Psychodelic style",
+    "price": 699,
+    "thumbnail": "Url2: ",
+    "code": "PINK12",
+    "stock": 2000,
+    "id": 1
+  },
+  {
+    "title": "Greta Van Fleet",
+    "description": "Zepellin's style",
+    "price": 499,
+    "thumbnail": "Url3: ",
+    "code": "GRETA46",
+    "stock": 500,
+    "id": 2
+  }
+]
