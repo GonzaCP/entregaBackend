@@ -1,20 +1,18 @@
-import express, { request, response } from "express"
+const ProductManager = require("./ProductManager.js")
 
-const app = express()
-const PORT = 8060
+const product1 = new ProductManager()
 
+let agregandoProductos = async () => {
+    await product1.crearTxt()
+    // await product1.addProduct("RHCP", "Funky style", 599, "Url1: ", "RHCP45", 1000)
+    // await product1.addProduct("Pink Floyd", "Acid barret", 799, "Url2: ", "PINK68", 2000)
+    // await product1.addProduct("Greta Van Fleet", "Zepellin's style", 499, "Url3: ", "GRETA46", 500)
 
-app.get("/saludo", (req, res) => {
-    res.send("que ondaaaaaa!")
-    // res.send({" nombre: Esteban"}) ---> enviando archivo JSON
-})
+    await product1.getProducts()
 
+    //product1.getProductsById(0)
 
+    //product1.updateProduct(1, "La Renga")
 
-
-
-
-app.listen(PORT, () => {
-    console.log(`Te escucho por el puerto ${PORT}`)
-}) 
-
+}
+agregandoProductos()

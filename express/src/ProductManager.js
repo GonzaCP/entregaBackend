@@ -109,20 +109,10 @@ class ProductManager {
     }
 }
 
-const product1 = new ProductManager()
-product1.crearTxt()
 
 
-//product1.addProduct("RHCP", "Funky style", 599, "Url1: ", "RHCP45", 1000)
-//product1.addProduct("Pink Floyd", "Psychodelic style", 699, "Url2: ", "PINK12", 2000)
-//product1.addProduct("Greta Van Fleet", "Zepellin's style", 499, "Url3: ", "GRETA46", 500)
+module.exports = ProductManager;
 
-
-//product1.getProducts()
-
-//product1.getProductsById(0)
-
-product1.updateProduct(1, "La Renga")
 
 
 // addProduct falta validación de nuevos productos para que no se repitan
