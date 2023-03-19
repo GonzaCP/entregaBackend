@@ -1,41 +1,67 @@
 import express, { request, response } from "express"
-// import ProductManager from "./ProductManager"
-
-// const product = new ProductManager();
-// product.getProducts
-
+import productsRouter from "./routes/products.router.js"
+import cartsRouter from "./routes/carts.router.js"
+import usuariosRouter from "./routes/usuarios.router.js"
 
 const app = express()
-const PORT = 8060
-//const productsJSON = require('./products.json')
+const PORT = 8080
 
-const productos = [
-    { title: "RHCP", description: "Funky style", price: "599", thumbnail: "Url1: ", code: "RHCP45", stock: "1000", id: "0" },
-    { title: "Pink Floyd", description: "Acid Barret", price: "699", thumbnail: "Url2: ", code: "PINK68", stock: "2000", id: "1" },
-    { title: "Divididos", description: "Aplanadora del rock", price: "799", thumbnail: "Url3: ", code: "DIVI48", stock: "3000", id: "2" },
-  
-]
+app.use(express.json())
+app.use(express.urlencoded({ extended: true}))
 
-//muestro todos los usuario
-app.get('/products', (req, res) => {
-    res.send(productos)
+app.get("/", (req, res) => {
+    res.send("We're in!")
 })
 
 
-app.get('/products/:pid', (req, res) => {
-    //hacemos una búsqueda con el ID
-    const productsFind = productos.find(p => p.id === req.params.pid)
-    if (productsFind) {
-         res.send(productsFind)
-    }
+//Routers
+app.use("/api/products", productsRouter)
+app.use("/api/carts", cartsRouter)
+app.use("/api/user", usuariosRouter);
 
-    res.send({ message: 'ID no encontrado!' })     
 
-})
+
+// const product = new ProductManager("../files/products.json")
+
+
+//  let agregandoProductos = async () => {
+//     await product.creoArchivo()
+//     // await product.addProduct("RHCP", "Funky style", 599, "Url1: ", "RHCP45", 1000)
+//     // await product.addProduct("Pink Floyd", "Acid barret", 799, "Url2: ", "PINK68", 2000)
+//     // await product.addProduct("Greta Van Fleet", "Zepellin's style", 499, "Url3: ", "GRETA46", 500)
+    
+//     //console.log(await product.getProducts())
+    
+//     //console.log(await product.getProductsById(1))
+
+// //     //await product.updateProduct(1, "La Renga")
+
+
+
+// }
+// agregandoProductos()
+
+
+//muestro todos los productos
+// app.get('/products', async(req, res) => {
+//     //await res.send("Holaaaa")
+//     await res.send("hi")
+
+// })
+
+
+// app.get('/products/:pid',(req, res) => {
+//    // hago búsqueda x ID
+//     const productsFind = products.find(p => p.id === req.params.pid)
+
+//     if (productsFind) {
+//        res.send(productsFind)
+//     }
+
+//     res.send({ message: 'ID no encontrado!' })     
+
+// })
  
-
-
-
 
 
 
