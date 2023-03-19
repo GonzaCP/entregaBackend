@@ -1,12 +1,12 @@
 [
-  {            
-        "title": "RHCP",
-        "description": "Funky style",
-        "price": 599,
-        "thumbnail": "Url1: ",
-        "code": "RHCP45",
-        "stock": 1000,
-        "id": 0
+  {
+    "title": "RHCP",
+    "description": "Funky style",
+    "price": 599,
+    "thumbnail": "Url1: ",
+    "code": "RHCP45",
+    "stock": 1000,
+    "id": 0
   },
   {
     "title": "Pink Floyd",
@@ -25,5 +25,9 @@
     "code": "GRETA46",
     "stock": 500,
     "id": 2
+  },
+  {
+    "title": "sasdsad",
+    "id": 3
   }
 ]

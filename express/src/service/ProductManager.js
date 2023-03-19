@@ -37,12 +37,12 @@ class ProductManager {
             // parseo producto           
             const productFileParsed = JSON.parse(productsFileContent)  
 
-            await this.creoArchivo()
+            // await this.creoArchivo()
                     
-            await this.getProducts()
+            // await this.getProducts()
 
             if (productFileParsed.find(u => u.id === newProduct.id)) {
-                console.warn("Producto ya existe, revise los datos nuevamente.");
+                console.warn("Producto ya existente.");
             } else {          
                    // pusheo nuevo producto         
                 productFileParsed.push(newProduct)            

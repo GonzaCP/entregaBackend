@@ -24,13 +24,11 @@ router.get("/", async (req, res) => {
 
 
 router.post("/", async (req, res) =>{
-    try {
-        console.log("llamando a Crear usuario:");
+    try {        
         const user = req.body;
         await userManager.crearUsuario(user.name, user.lastName, user.username, user.password);
         res.status(201).send({mensaje: "Usuario creado con éxito! Con username:" + user.username});
-    } catch (error) {
-        console.log("Error guardando usuario. Error: " + error); 
+    } catch (error) {        
         res.status(500).send({error: "Error guardando usuario", mensagge: error});
     }
 });

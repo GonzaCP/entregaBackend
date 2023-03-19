@@ -23,29 +23,17 @@ router.get("/", async (req, res) => {
     }
 })
 
-// router.get("/:id", async(req, res) => {
-//     console.log(req.params); //URL /
-//     console.log(req.query); //URL/queryParams ?variable=valor&variable2=valor
-//     const productId = parseInt(req.params.id);
-//     if(productId){
-//         let productIndex  = products.findIndex((p) => p.id === productId);
-//         await res.send(productIndex === -1 ? "Producto no encontrado" : products[productIndex]);
-//     }else {
-//        res.status(400).send({error: "400", menssage: "El id es invalido o no existe."});
-//     }
-//     await res.send(products);
-// });
 
-router.post("/", async(req, res) => {
-    try {
-        const product = req.body
-        await products.addProduct()
-        res.status(201).send({message: "Producto agregado con éxito"})
-
-    } catch (error) {
-        res.status(500).send({error: "Error guardando producto", message: error})
+router.post("/", async (req, res) =>{
+    try {       
+        const product = req.body;
+        await products.addProduct(product.title, product.description, product.price, product.thumbnail, product.code, product.stock);
+        res.status(201).send({mensaje: "Producto creado con éxito! Con título:" + product.title});
+    } catch (error) {       
+        res.status(500).send({error: "Error guardando producto", mensagge: error});
     }
-})
+});
+
 
 
 
