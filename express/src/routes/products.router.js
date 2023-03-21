@@ -5,18 +5,15 @@ const router = Router()
 const products = new ProductManager("./files/products.json")
 
 
-
-//armar los endpoints
+//endpoints
 router.get("/", async (req, res) => {
     // instancio getProducts()
-
     try {
-        let productos = await products.getProducts()
-        console.log(productos)
-        const limit = req.query.limit
-        if(limit) {
-            products = productos.slice(0, parseInt(limit))            
-        }
+        let productos = await products.getProducts()            
+        // const limit = req.query.limit
+        // if(limit) {
+        //     products = productos.slice(0, parseInt(limit))            
+        // }
         res.send(productos)
     } catch (error) {
         res.status(500, {error: "Error consultando los productos", message: error})
@@ -26,11 +23,14 @@ router.get("/", async (req, res) => {
 
 router.post("/", async (req, res) =>{
     try {       
-        const product = req.body;
-        await products.addProduct(product.title, product.description, product.price, product.thumbnail, product.code, product.stock);
-        res.status(201).send({mensaje: "Producto creado con éxito! Con título:" + product.title});
+        const {title, description, price, thumbnail, code, stock} = req.body
+        await products.addProduct(title, description, price, thumbnail, code, stock);
+        // const product = req.body;
+        // await products.addProduct(product.title, product.description, product.price, product.thumbnail, product.code, product.stock);
+        
+        res.status(201).send({mensaje: "Producto creado con éxito! Con título:" + products.title});
     } catch (error) {       
-        res.status(500).send({error: "Error guardando producto", mensagge: error});
+        res.status(500).send({error: "Error guardando producto", mesagge: error});
     }
 });
 

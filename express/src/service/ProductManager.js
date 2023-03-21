@@ -1,9 +1,10 @@
 import fs from "fs"
 
 class ProductManager {
+
     constructor(path) {
         this.nameFile = path;  
-        this.fs = fs   
+        this.fs = fs;       
     }
 
     static id = 0;
@@ -19,36 +20,36 @@ class ProductManager {
         }       
     }  
     
-    addProduct = async(title, description, price, thumbnail, code, stock) => {  
+    addProduct = async(title, description, price, thumbnail, code, stock) => {         
         
         let newProduct = {
-            title: title,
+            title: title,   
             description: description,
             price: price,
             thumbnail: thumbnail,
             code: code,
-            stock: stock,
+            stock: stock,       
             id: ProductManager.id++
-        }   
+        }  
+        
+        if(!newProduct.title || !newProduct.description || !newProduct.price || !newProduct.thumbnail || !newProduct.code || !newProduct.stock) {            
+            throw Error ("Recuerda completar todos los campos para agregar el producto.");
+        } 
         try {                         
             // leo producto
-            const productsFileContent = await this.fs.promises.readFile(this.nameFile, "utf-8")           
+            const productsFileContent = await this.fs.promises.readFile(this.nameFile, "utf-8")          
           
             // parseo producto           
-            const productFileParsed = JSON.parse(productsFileContent)  
-
-            // await this.creoArchivo()
-                    
-            // await this.getProducts()
-
-            if (productFileParsed.find(u => u.id === newProduct.id)) {
-                console.warn("Producto ya existente.");
-            } else {          
-                   // pusheo nuevo producto         
-                productFileParsed.push(newProduct)            
-                await this.fs.promises.writeFile(this.nameFile, JSON.stringify(productFileParsed, null, 2))                                
-            }         
+            const productFileParsed = JSON.parse(productsFileContent)                          
          
+            if (productFileParsed.find(u => u.id === newProduct.id)) {              
+                console.warn("Producto ya existente.");
+            } else { 
+                // pusheo nuevo producto         
+                productFileParsed.push(newProduct)   
+                    
+                await this.fs.promises.writeFile(this.nameFile, JSON.stringify(productFileParsed, null, 2))                 
+            }      
         } catch (error) {
             throw Error (`El producto se encuentra agregado, detalle del error: ${error}`)
         }       
@@ -71,7 +72,6 @@ class ProductManager {
 
     getProductsById = async(id) => {
         await this.getProducts()
-
 
         try {
             const productsFileContent = await this.fs.promises.readFile(this.nameFile, "utf-8")            

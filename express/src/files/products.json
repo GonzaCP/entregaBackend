@@ -1,33 +1,20 @@
 [
   {
-    "title": "RHCP",
-    "description": "Funky style",
+    "title": "Pink Floyd",
+    "description": "Acid Barret",
     "price": 599,
-    "thumbnail": "Url1: ",
-    "code": "RHCP45",
-    "stock": 1000,
+    "thumbnail": "Url1",
+    "code": "PINK745",
+    "stock": 3300,
     "id": 0
   },
   {
-    "title": "Pink Floyd",
-    "description": "Acid barret",
-    "price": 799,
-    "thumbnail": "Url2: ",
-    "code": "PINK68",
-    "stock": 2000,
+    "title": "Red Hot Chili Peppers",
+    "description": "Funky Style",
+    "price": 699,
+    "thumbnail": "Url2",
+    "code": "RHCP745",
+    "stock": 3400,
     "id": 1
-  },
-  {
-    "title": "Greta Van Fleet",
-    "description": "Zepellin's style",
-    "price": 499,
-    "thumbnail": "Url3: ",
-    "code": "GRETA46",
-    "stock": 500,
-    "id": 2
-  },
-  {
-    "title": "sasdsad",
-    "id": 3
   }
 ]

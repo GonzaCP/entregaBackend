@@ -1,7 +1,7 @@
 import express, { request, response } from "express"
 import productsRouter from "./routes/products.router.js"
 import cartsRouter from "./routes/carts.router.js"
-import usuariosRouter from "./routes/usuarios.router.js"
+
 
 const app = express()
 const PORT = 8080
@@ -17,7 +17,6 @@ app.get("/", (req, res) => {
 //Routers
 app.use("/api/products", productsRouter)
 app.use("/api/carts", cartsRouter)
-app.use("/api/user", usuariosRouter);
 
 
 
