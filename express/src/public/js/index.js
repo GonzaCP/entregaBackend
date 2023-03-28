@@ -1,0 +1,1 @@
+alert("Te saludo desde express/src/public/js/index.js")

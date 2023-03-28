@@ -4,10 +4,10 @@ class ProductManager {
 
     constructor(path) {
         this.nameFile = path;  
-        this.fs = fs;       
+        this.fs = fs;              
     }
 
-    static id = 0;
+    static id = 0  
 
     creoArchivo = async() => {
         try {
@@ -20,27 +20,29 @@ class ProductManager {
         }       
     }  
     
-    addProduct = async(title, description, price, thumbnail, code, stock) => {         
-        
+    addProduct = async(title, description, price, thumbnail, code, stock) => { 
+      
         let newProduct = {
             title: title,   
             description: description,
             price: price,
             thumbnail: thumbnail,
             code: code,
-            stock: stock,       
+            stock: stock,     
             id: ProductManager.id++
-        }  
+        }           
         
         if(!newProduct.title || !newProduct.description || !newProduct.price || !newProduct.thumbnail || !newProduct.code || !newProduct.stock) {            
             throw Error ("Recuerda completar todos los campos para agregar el producto.");
         } 
         try {                         
             // leo producto
-            const productsFileContent = await this.fs.promises.readFile(this.nameFile, "utf-8")          
+            const productsFileContent = await this.fs.promises.readFile(this.nameFile, "utf-8") 
+                  
           
             // parseo producto           
-            const productFileParsed = JSON.parse(productsFileContent)                          
+            const productFileParsed = JSON.parse(productsFileContent)                             
+           
          
             if (productFileParsed.find(u => u.id === newProduct.id)) {              
                 console.warn("Producto ya existente.");
@@ -74,25 +76,17 @@ class ProductManager {
         await this.getProducts()
 
         try {
+
             const productsFileContent = await this.fs.promises.readFile(this.nameFile, "utf-8")            
-            const productFileParsed = JSON.parse(productsFileContent) 
-         
+            const productFileParsed = JSON.parse(productsFileContent)          
 
-           const searchingProduct = productFileParsed.find(p => p.id === id)
-           if(id) {
-            return searchingProduct
-           } else {
-            console.warn(`Producto no encontrado con el id: ${id}`)
-           }
-
-            // const productFinded = productFileParsed.filter(async(product) => {
-            //     if(product.id === id) {
-            //         console.log(product)
-            //         //return await product
-            //     } else {
-            //         console.warn(`No se encontró el producto con id: ${id}`)
-            //     }            
-            // })
+            const searchingProduct = await productFileParsed.find(p => p.id === id)
+            if(id) {
+                return searchingProduct
+            } else {
+                console.warn(`Producto no encontrado con el id: ${id}`)
+            }
+           
         } catch (error) {
             throw Error (`No se encontró ningún producto con el id = ${id}`)
         }       
@@ -134,6 +128,7 @@ class ProductManager {
 
 
 
+
 //Si utilizo module.exports luego para llamar se utiliza 'require'
 //module.exports = ProductManager;
 
@@ -142,6 +137,6 @@ export default ProductManager;
 
 
 
-// addProduct falta validación de nuevos productos para que no se repitan
-// getProductsByID falta devolver en formato OBJETO y si no encuentra el ID que devuelva el error
-// corregir deleteProduct para que SOLO se elimine el archivo que encuentra
+
+
+

@@ -20,6 +20,18 @@ router.get("/", async (req, res) => {
     }
 })
 
+router.get("/:pid", async(req, res) => {
+    try {
+        const productId = await products.getProductsById(parseInt(req.params.pid))
+        if(productId) {
+            res.send(productId)
+        }
+
+    } catch (error) {
+        res.status(500, { error: "Usuario no encontrado" })
+    }
+})
+
 
 router.post("/", async (req, res) =>{
     try {       
@@ -28,11 +40,23 @@ router.post("/", async (req, res) =>{
         // const product = req.body;
         // await products.addProduct(product.title, product.description, product.price, product.thumbnail, product.code, product.stock);
         
-        res.status(201).send({mensaje: "Producto creado con éxito! Con título:" + products.title});
+        res.status(201).send({mensaje: "Producto creado con éxito! Con título:" + title});
     } catch (error) {       
         res.status(500).send({error: "Error guardando producto", mesagge: error});
     }
 });
+
+// router.put("/:pid", async (req, res) => {
+//     try {
+//         const modifyProductById = await products.updateProduct(parseInt(req.params.pid))
+//         if (modifyProductById) {
+//             res.send(modifyProductById)
+//         }
+
+//     } catch (error) {
+//         res.status(500).send({error: "No se encuentra el id proporcionado"})
+//     }
+// })
 
 
 

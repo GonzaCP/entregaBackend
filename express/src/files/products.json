@@ -1,20 +1,38 @@
 [
   {
-    "title": "Pink Floyd",
-    "description": "Acid Barret",
-    "price": 599,
-    "thumbnail": "Url1",
-    "code": "PINK745",
-    "stock": 3300,
-    "id": 0
-  },
-  {
     "title": "Red Hot Chili Peppers",
     "description": "Funky Style",
     "price": 699,
     "thumbnail": "Url2",
     "code": "RHCP745",
     "stock": 3400,
+    "id": 0
+  },
+  {
+    "title": "The Beatles",
+    "description": "The Fab Four",
+    "price": 899,
+    "thumbnail": "Url3",
+    "code": "BEAT46",
+    "stock": 5400,
     "id": 1
+  },
+  {
+    "title": "Pink Floyd",
+    "description": "Acid Barret",
+    "price": 999,
+    "thumbnail": "Url4",
+    "code": "PINK446",
+    "stock": 5900,
+    "id": 2
+  },
+  {
+    "title": "Led Zeppelin",
+    "description": "Gloriuouououos",
+    "price": 1999,
+    "thumbnail": "Url5",
+    "code": "LED2446",
+    "stock": 6900,
+    "id": 3
   }
 ]
